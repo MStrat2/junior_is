@@ -70,3 +70,22 @@ location = {UMD Campus, College Park, MD, USA},
 series = {HotNets '25},
 annote = {This paper introduces the concept of Software Managed Networks (SMN) as opposed to Software Defined Networks (SDN). It gives examples for the weaknesses of Siloed Network management (A practice where work is divided up by working on different TCP/IP layers) and how SDNs still do not allow for the best management of all layers. It continues into the deeper workings of SMNs via Coarsening (The idea of mapping complex data to a more compact and abstract representation that has approximately the same effect.)}
 }
+
+@inproceedings{10.1145/3646547.3689674,
+author = {Rostami, Sina and Heinrich, Tiago and Albakour, Taha},
+title = {Poster: An Investigation into Internet-facing Router Services},
+year = {2024},
+isbn = {9798400705922},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3646547.3689674},
+doi = {10.1145/3646547.3689674},
+abstract = {Routers are the core building block of the Internet infrastructure. Maintaining a secure router deployment is critical for protecting networks and providing uninterrupted, smooth operation. In this work, we take a first step toward analyzing routers' security on the Internet. We focus on the potential attack surface for routers, i.e., publicly exposed services. Specifically, we investigate what services are commonly running on known router IPv4 addresses. While exposed services may not pose an immediate risk, they do highlight failure to follow best practices, e.g., strict access control lists. We found that more than 40\% of known router IPv4 addresses have at least one public-facing service. We also highlight the lack of consistency in applying network-wide security policies.},
+booktitle = {Proceedings of the 2024 ACM on Internet Measurement Conference},
+pages = {775–776},
+numpages = {2},
+keywords = {internet infrastructure, routers, security},
+location = {Madrid, Spain},
+series = {IMC '24},
+annote = {This paper dives into how unprotected at least 40% of peoples routers are by having an open port for at least one type of outward services (SNMPv1 and v2, HTTP, NTP, SSH, TELNET, FTP). These vulnerabilities and open ports need to be mitigated for secure personal networks. They focus on IPv4 address for this paper, but plan to re-examine current findings and look into the status of IPv6.}
+}
