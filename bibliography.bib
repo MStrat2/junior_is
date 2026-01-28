@@ -52,4 +52,21 @@ keywords = {education, open educational resources},
 annote = {This article describes the new way in which colleges should be teaching a Computer Networking course and the importance of offering such course for future students. Most of the practical use of this paper is to reference larger scale free textbooks for each of the listed sections, making a pool of resources for students to use and learn from the listed authors. The paper also dives deeper into the overarching topics professors should be covering, such as Learning protocols by dissecting packets, running virtual labs, implementing a simple transport protocol, and much more.}
 }
 
-
+@inproceedings{10.1145/3772356.3772393,
+author = {Dogga, Pradeep and Singh, Rachee and Nath, Suman and Netravali, Ravi and Palsberg, Jens and Varghese, George},
+title = {Software Managed Networks via Coarsening},
+year = {2025},
+isbn = {9798400722806},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3772356.3772393},
+doi = {10.1145/3772356.3772393},
+abstract = {We propose moving from Software Defined Networks (SDN) to Software Managed Networks (SMN) where all information for managing the life cycle of a network (from deployment to operations to upgrades), across all layers (from Layer 1 through 7) is stored in a central repository. Crucially, a SMN also has a generalized control plane that, unlike SDN, controls all aspects of the cloud including traffic management (e.g., capacity planning) and reliability (e.g., incident routing) at both short (minutes) and large (years) time scales. Just as SDN allows better routing, a SMN improves visibility and enables cross-layer optimizations for faster response to failures and better network planning and operations. Implemented naively, SMN for planetary sc6ale networks requires orders of magnitude larger and more heterogeneous data (e.g., alerts, logs) than SDN. We address this using coarsening — mapping complex data to a more compact abstract representation that has approximately the same effect, and is more scalable, maintainable, and learnable. We show examples including Coarse Bandwidth Logs for capacity planning and Coarse Dependency Graphs for incident routing. Coarse Dependency Graphs improve an incident routing metric from 45\% to 78\% while for a distributed approach like Scouts the same metric was 22\%. We end by discussing how to realize SMN, and suggest cross-layer optimizations and coarsenings for other operational and planning problems in networks.},
+booktitle = {Proceedings of the 24th ACM Workshop on Hot Topics in Networks},
+pages = {201–209},
+numpages = {9},
+keywords = {network management, AIOps, capacity planning},
+location = {UMD Campus, College Park, MD, USA},
+series = {HotNets '25},
+annote = {This paper introduces the concept of Software Managed Networks (SMN) as opposed to Software Defined Networks (SDN). It gives examples for the weaknesses of Siloed Network management (A practice where work is divided up by working on different TCP/IP layers) and how SDNs still do not allow for the best management of all layers. It continues into the deeper workings of SMNs via Coarsening (The idea of mapping complex data to a more compact and abstract representation that has approximately the same effect.)}
+}
