@@ -1,44 +1,66 @@
-% This is a template for your written document.
-%
-% To compile using latexmk on the command line, run the following: 
-% latexmk -pdf main.tex
-
 \documentclass[12pt]{article}
 \usepackage{setspace}
 \singlespace
 \usepackage[left=1in,right=1in,top=1in,bottom=1in]{geometry}
 \usepackage{graphicx}
 
-\title{\textbf{Project Topic}}
-\author{Your Name}
+\title{\textbf{Comparing Vulnerabilities in Networks: 
+Software Defined Networks in Personal and Enterprise Applications}}
+\author{Maxwell Stratford}
 
 \begin{document}
 
 \maketitle
 
 \section{Introduction}
-The introduction will broadly introduce your topic, motivate it, and describe what will be done.
+  \subsection{Network Devices}
+    Introduction to different network devices. Routers, switches, SDNs, ect.
+  \subsection{Software}
+    The software and simulations I will be using for this project. \cite{GHOSTSDocumentationGHOSTS},
+    Packate Tracer, Wireshark, VirtualBox.
+  \subsection{Network Protocols}
+    Introduction to different network protocols. TCP/IP, HTTP, FTP, ect.
+  \subsection{Comparing Network Types}
+    Introduction to different network types. Home, enterprise, ect.
+  
 
-\section{Related Works}
+\section{Home Network Topology}
+  \subsection{Network Diagram}
+    Diagram of a typical home network. (Probably made in packate tracer so its easier to see)
+  \subsection{How Home Networks are Setup}
+    Basic introdoction to how an ISP would set up a home network.
+  \subsection{Security Vulnerabilities in Home Networks}
+    Common security vulnerabilities in home networks. (Default passwords, open wifi, ect.)
+  \subsection{SDN Implementation}
+    How SDNs could be implemented in a home network. (Probably using GHOSTS)
+  \subsection{Comparison}
+    Comparison of home networks with and without SDNs. (Security, performance, ect.)
 
-\section{Methodology}
-Dijkstra's algorithm was chosen for single-source shortest path computation on graphs with non-negative edge weights, following the implementation presented in CLRS~\cite{clrsAlgorithms}.
+\section{Enterprise Network Topology}
+  \subsection{Network Diagram}
+    Diagram of a typical enterprise network. (Probably made in packate tracer so its easier to see)
+  \subsection{How Enterprise Networks are Setup}
+    Basic introduction to how an IT team would set up a enterprise network.
+  \subsection{Basic Enterprise Network Setup}
+    Basic enterprise network setup. (VLANs, firewalls, ect.)
+  \subsection{Security Vulnerabilities in Enterprise Networks}
+    Common security vulnerabilities in enterprise networks. (Phishing, insider threats, ect.)
+  \subsection{SDN Implementation}
+    How SDNs could be implemented in an enterprise network. (Probably using GHOSTS)
+  \subsection{Comparison}
+    Comparison of enterprise networks with and without SDNs. (Security, performance, ect.)
 
-\section{Results}
-An exemplary figure is shown in Figure~\ref{fig:dijkstra}. Any time a figure is used, it must have a capation and be directly referred to and discussed in the text.
+\section{Penetration Testing}
+  \subsection{Tools and Software}
+  \subsection{Types of Attacks}
+  \subsection{Home Network}
+  \subsection{Enterprise Network}
+  \subsection{Comparison}
 
-%\begin{figure}[b] puts the image to the (closest) bottom of page
-%\begin{figure}[t] puts the image to the (closest) top of page
-%\begin{figure}[h] allows the image to float, putting it roughly wherever it was placed in the text.
-\begin{figure}[b] 
-\begin{center}
-  \includegraphics[width=5cm]{imgs/dijkstra.png}
-  \caption{Dijkstra's algorithm does not work on graphs with negative edge weights, as evidenced here.}
-  \label{fig:dijkstra}
- \end{center}
-\end{figure}
-
-
+\section{Best Practices and Mitigation}
+  \subsection{Home Network}
+  \subsection{Enterprise Network}
+  \subsection{Comparison}
 
 \section{Conclusion}
 
