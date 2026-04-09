@@ -13,7 +13,7 @@ Software Defined Networks in Personal and Enterprise Applications}}
 \maketitle
 
 \section{Introduction}
-With the everchanging landscape of the IT field, it is important to try to stay up to date on 
+With the ever changing landscape of the IT field, it is important to try to stay up to date on 
 security vulnerabilities, and new technologies that are being developed. Something that the average
 person may not be aware of is the concept of network security or vulnerabilities, even though this 
 is one of the easiest ways for a hacker to gain access to devices and secure information. With the 
@@ -24,7 +24,7 @@ flexible, efficient, and secure network. They do this through seperating the Con
 making portion, from the Data Plane, the portion of the network that handles the actual data transfer.
 By centralizing the decision making, it abstracts the underlying hardware, and allows for more efficient
 network management. The goal of this paper, is to compare the SDNs and basic network setups in terms of
-enterprise and personal applications, and show how a network administator can use SDNs to create a more 
+enterprise and personal applications, and show how a network administrator can use SDNs to create a more 
 secure network, and mitigate usual vulnerabilities. This comparison is important because it will firstly,
 help to inform people about security vulnerabilities in their networks, and secondly, it will give them 
 the tools to mitigate those vulnerabilities, and create a more secure network. 
@@ -55,7 +55,7 @@ that will be used in this paper.
     \item SDN Controller: A centralized software entity that manages network switches. It makes 
     routing decisions (control plane) and pushes rules to switches, which only forward packets 
     (data plane). This separates decision-making from packet forwarding.
-    \item End Device: A device that is connected to the network that can send and/or receieve data.
+    \item End Device: A device that is connected to the network that can send and/or receive data.
     This can be a computer, a phone, a printer, television, digital camera, etc.
 \end{itemize}
 
@@ -114,6 +114,51 @@ discussing vulnerabilities in networks.
 Later in the paper, these two types of networks will be compared in terms of their vulnerabilities
 and setup, and how SDN implementations can be used to mitigate those vulnerabilities and create 
 a more secure network.
+
+\section{Related Works}
+Software Defined Networks (SDNs) are a relatively new technology, but a well researched one. There are
+many papers that have been published on the topic, and many of them focus on the more intricate details
+by diving into enterprise applications of the SDN. Particularly, on the topic of mitigating large scale 
+attacks \cite{biswas2021mitigation}. However, prior research has seemed to overlook the home networks,
+which face different threats and technical constraints. This section reviews relevant literature on 
+SDN security, network vulnerabilities, and simulation tools, then identifies the gap this study addresses.
+
+\subsection{SDN for Attack Mitigation}
+Biswas \cite{biswas2021mitigation} investigated SDN based mitigation of network attacks like DDoS,
+demonstrating how an SDN improved detection and response time of an attack when compared to a 
+traditional network architecture. However, this study exclusively focused on enterprise networks,
+leaving a gap in understanding of how SDNs can be applied to a home network, where resources are 
+limited and attack vectors differ. 
+
+\subsection{Traditional Network Vulnerabilities}
+Rostami et al. \cite{InternetFacingRouterRostami} examined internet facing router services and 
+found that over 40\% of known router IPv4 addresses had at least one vulnerable service exposed.
+This failure to follow basic network security practices highlights the vulnerabilities of many
+networks, particuarly home networks, where most users do not have the technical knowledge to 
+secure their networks, or even know they need to secure their networks. This increases the need for
+SDNs in home networks, as they can enforce security policies centrally. 
+
+In summary, prior research has demonstrated SDN's effectiveness for attack mitigation in enterprise 
+networks \cite{biswas2021mitigation} and documented widespread vulnerabilities in home routers 
+\cite{InternetFacingRouterRostami}. However, there seems to be a gap in understanding of how SDNs 
+could effect home network security. This paper aims to fill that gap by simulating both networks 
+before and after the implementation of an SDN, and performing testing and penetration testing
+to show the SDNs effect. The next section will show the methodology for this simulation and testing.
+
+\section{Methodology}
+To compare SDNs in enterprise and personal networks, this study uses a simulation based approach, 
+where through simulating such networks with their traffic, and then performing penetration testing
+on them, we can see the vulnerabilities of each network, and how the SDN can mitigate those 
+vulnerabilities.
+
+\subsection{The Simulation Environment}
+VirtualBox \cite{virtualbox_docs} will be used to create virtual machines that will represent end users
+and network devices. GHOSTS \cite{GHOSTSDocumentationGHOSTS} will then be installed on the simulated end
+users to generate realistic network traffic. Both types of Network topologies, enterprise and personal, 
+will be simulated this way, and then the SDN will be implemented in each network, and the simulation will 
+be run again to see the effect of the SDN on the network's vulnerabilities.
+
+\subsection{Attack Methodology}
 
 
 \bibliographystyle{acm}
