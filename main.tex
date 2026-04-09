@@ -41,6 +41,79 @@ be used in enterprise applications, but also in personal network applications, a
 the easiest target for a Threat Actor into any network.
 
 \section{Background}
+This section will cover the background information that is necessary to understand the rest of the paper.
+This includes the different types of networking devices, software tools, network protocols, and attack types
+that will be used in this paper.
+
+\subsection{Networking Devices}
+\begin{itemize}
+    \item Router: A device that forwards data between different networks. For example, a home router
+    will be the box from your ISP (Internet Service Provider) that connects your home network to your
+    ISP's network, which will then be forwarded to the internet. 
+    \item Switch: A device that acts like a router, but only forwards data within the same network. 
+    Some home setups will have a small switch used to connect multiple devices to Ethernet.
+    \item SDN Controller: A centralized software entity that manages network switches. It makes 
+    routing decisions (control plane) and pushes rules to switches, which only forward packets 
+    (data plane). This separates decision-making from packet forwarding.
+    \item End Device: A device that is connected to the network that can send and/or receieve data.
+    This can be a computer, a phone, a printer, television, digital camera, etc.
+\end{itemize}
+
+\subsection{Software Tools}
+These are the software tools that will be used in simulating the network and performing the penetration
+testing. 
+\begin{itemize}
+    \item GHOSTS: A software tool developed by Carnegie Mellon University that allows for the 
+    simulation of network traffic. It does this by using a virtual machine and an AI to emulate a user,
+    for example, surfing the web. \cite{GHOSTSDocumentationGHOSTS}
+    \item VirtualBox: A software tool developed by Oracle Corporation that allows for the creation of
+    virtual machines. This will be used to create the network and the end devices for the simulation.
+    \cite{virtualbox_docs}
+    \item Packet Tracer: A software tool developed by Cisco that allows for the simulation of network 
+    traffic and the creation of virtual networks. This will be used to create diagrams of the network topology.
+    \cite{cisco_packet_tracer_install}
+    \item Wireshark: A software tool that allows for the analysis of network traffic. \cite{wireshark_docs}
+\end{itemize}
+
+\subsection{Network Protocols}
+These are some basic protocols that are used in every network, and are important to understand when 
+discussing vulnerabilities in networks.
+\begin{itemize}
+    \item TCP/IP: Consists of two core protocols. TCP (Transmission Control Protocol) handles 
+    reliable, ordered delivery of data, while IP (Internet Protocol) handles addressing and routing. 
+    This suite is the foundation of internet communication, and attacks like DDoS target TCP's 
+    connection-handling mechanisms.
+    \item HTTP/HTTPS: Protocols used for transmitting web pages and other data between a web browser 
+    and a web server.
+    \item ARP: A protocol used for mapping IP addresses to MAC addresses. Because ARP lacks authentication,
+     an attacker can send fake ARP replies to associate their MAC address with a legitimate IP. This is a 
+     technique called ARP spoofing, used in man-in-the-middle attacks.
+\end{itemize}
+
+\subsection{Comparing Network Types}
+\begin{itemize}
+    \item Personal Network: A network that is used for personal use, such as a home network. These 
+    networks are typically smaller and less complex than enterprise networks, and are often not as 
+    secure. This leads to them being an easy target for Threat Actors.
+    \item Enterprise Network: A network that is used for business purposes, such as a corporate network.
+    These networks are typically larger and more complex than personal networks, and are often more
+    secure. However, they are also a larger target for Threat Actors, and can be more difficult to 
+    secure due to their size and complexity.
+\end{itemize}
+
+\subsection{Attack Types}
+\begin{itemize}
+    \item DDoS (Directed Denial of Service): An attack that floods a network with traffic in order to 
+    overwhelm it and make it unavailable to legitimate users.
+    \item ARP Spoofing: An attack that involves sending fake ARP replies to associate the attacker's MAC address
+    with a legitimate IP address, allowing the attacker to intercept or manipulate traffic intended for that IP.
+    \item MITM (Man in the Middle): An attack that involves intercepting and potentially altering communication 
+    between two parties. 
+\end{itemize}
+
+Later in the paper, these two types of networks will be compared in terms of their vulnerabilities
+and setup, and how SDN implementations can be used to mitigate those vulnerabilities and create 
+a more secure network.
 
 
 \bibliographystyle{acm}
