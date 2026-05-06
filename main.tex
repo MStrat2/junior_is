@@ -5,7 +5,7 @@
 \usepackage{graphicx}
 
 \title{\textbf{Comparing Vulnerabilities in Networks: 
-Software Defined Networks in Personal and Enterprise Applications}}
+Software Defined Networks in Personal Applications}}
 \author{Maxwell Stratford}
 
 \begin{document}
@@ -13,153 +13,152 @@ Software Defined Networks in Personal and Enterprise Applications}}
 \maketitle
 
 \section{Introduction}
-With the ever changing landscape of the IT field, it is important to try to stay up to date on 
-security vulnerabilities, and new technologies that are being developed. Something that the average
-person may not be aware of is the concept of network security or vulnerabilities, even though this 
-is one of the easiest ways for a hacker to gain access to devices and secure information. With the 
-right setup, it is possible to have a secure network that can be used for personal or 
-enterprise applications. One of the newer technologies that are being used in the field of networking
-are SDN (Software Defined Network) bridges. These devices allow for a more 
-flexible, efficient, and secure network. They do this through seperating the Control Plane, the decision
-making portion, from the Data Plane, the portion of the network that handles the actual data transfer.
-By centralizing the decision making, it abstracts the underlying hardware, and allows for more efficient
-network management. The goal of this paper, is to compare the SDNs and basic network setups in terms of
-enterprise and personal applications, and show how a network administrator can use SDNs to create a more 
-secure network, and mitigate usual vulnerabilities. This comparison is important because it will firstly,
-help to inform people about security vulnerabilities in their networks, and secondly, it will give them 
-the tools to mitigate those vulnerabilities, and create a more secure network. 
-Prior works to this paper, including \cite{biswas2021mitigation}, dive into enterprise applications
-of the SDN, and how it can be used to mitigate large Threat Actors. This paper will expand on that, 
-but will also include how to mitigate smaller scale attacks, that are easy for a Threat Actor to 
-perform, but most networks are not prepared for. Towards this goal, Carnegie Mellon 
-University's GHOSTS \cite{GHOSTSDocumentationGHOSTS} and VirtualBox \cite{virtualbox_docs} will
-be used to simulate a network and its traffic. Then penetration testing of the networks will be 
-performed to test the vulnerabilities of the network through basic attacks like DDoS (Directed
-Denial of Service), MITM (Man in the Middle), and ARP (Address Resolution Protocol) Spoofing.
-So in all, this paper will contribute to the fields understanding of SDNs and how they can not only
-be used in enterprise applications, but also in personal network applications, as the end user is
-the easiest target for a Threat Actor into any network.
+With the ever-changing landscape of the Information Technology (IT) field, it is important to stay up to date on 
+security vulnerabilities and new technologies that are being developed. However, someone who does not work with 
+technology will not be aware of these vulnerabilities or concepts in network security, even though their networks 
+may be the easiest to attack. With the right setup and teaching however, these personal networks can be easily 
+secured. One of the newer technologies in the field that can help towards securing these networks is a Software 
+Defined Network (SDN) controller. These devices allow for a more flexible, efficient, and secure network by 
+separating the control plane which controls the decision making, from the Data Plane which controls the portion 
+of the network that handles the actual data transfer itself.
+By centralizing the decision making to the SDN controller, it abstracts the underlying hardware and allows for 
+more efficient network management. The goal of this paper is to compare a basic network setup in a personal network 
+to a setup with a SDN controller to show how a person can secure their home network. This comparison is important 
+because it will help to inform people about security vulnerabilities, give them tools to mitigate these 
+vulnerabilities, and create a more secure network. Prior works to this paper, including \cite{biswas2021mitigation}, 
+dive into enterprise applications for this technology, and how it can be used to mitigate large scale attacks. 
+However, this paper will focus on the personal networks that are often overlooked. Towards this goal, VirtualBox 
+will be used to simulate a network and its traffic, while Kali Linux will be used to penetration test the network. 
+The attack that will be performed during the penetration testing is a man in the middle (MITM) attack. The hope for 
+this paper is to alert the average user to security vulnerabilities in their network and give them the tools they 
+need to mitigate them.
 
 \section{Background}
-This section will cover the background information that is necessary to understand the rest of the paper.
-This includes the different types of networking devices, software tools, network protocols, and attack types
-that will be used in this paper.
+This section will cover the background information that is necessary to understand the rest of the paper, as well 
+as a home network setup. This includes the different types of networking devices and software tools.
 
 \subsection{Networking Devices}
 \begin{itemize}
-    \item Router: A device that forwards data between different networks. For example, a home router
-    will be the box from your ISP (Internet Service Provider) that connects your home network to your
-    ISP's network, which will then be forwarded to the internet. 
-    \item Switch: A device that acts like a router, but only forwards data within the same network. 
-    Some home setups will have a small switch used to connect multiple devices to Ethernet.
-    \item SDN Controller: A centralized software entity that manages network switches. It makes 
+    \item -	Router: A device that forwards data between different networks. For example, a home router will be 
+    the box from your internet service provider (ISP) that connects your home network to your ISP's network, 
+    which will then be forwarded to the internet. 
+    \item -	Switch: A device that acts like a router, but only forwards data within the same network. 
+    Some home setups will have a small switch used to connect multiple devices to Ethernet. 
+    \item -	SDN Controller: A centralized software entity that manages network switches. It makes 
     routing decisions (control plane) and pushes rules to switches, which only forward packets 
     (data plane). This separates decision-making from packet forwarding.
-    \item End Device: A device that is connected to the network that can send and/or receive data.
-    This can be a computer, a phone, a printer, television, digital camera, etc.
+    \item -	End Device: A device that is connected to the network that can send and/or receive 
+    data. This can be a computer, a phone, a printer, television, digital camera, etc.
 \end{itemize}
 
 \subsection{Software Tools}
-These are the software tools that will be used in simulating the network and performing the penetration
-testing. 
+These are the software tools that will be used in simulating the network and performing penetration testing.
 \begin{itemize}
-    \item GHOSTS: A software tool developed by Carnegie Mellon University that allows for the 
-    simulation of network traffic. It does this by using a virtual machine and an AI to emulate a user,
-    for example, surfing the web. \cite{GHOSTSDocumentationGHOSTS}
-    \item VirtualBox: A software tool developed by Oracle Corporation that allows for the creation of
-    virtual machines. This will be used to create the network and the end devices for the simulation.
+    \item -	VirtualBox: A software tool developed by Oracle that allows for the creation of virtual machines 
+    (VMs). This will be used to create a virtual network and end devices for the simulation.
     \cite{virtualbox_docs}
-    \item Packet Tracer: A software tool developed by Cisco that allows for the simulation of network 
+    \item -	Packet Tracer: A software tool developed by Cisco that allows for the simulation of network 
     traffic and the creation of virtual networks. This will be used to create diagrams of the network topology.
     \cite{cisco_packet_tracer_install}
-    \item Wireshark: A software tool that allows for the analysis of network traffic. \cite{wireshark_docs}
 \end{itemize}
 
-\subsection{Network Protocols}
-These are some basic protocols that are used in every network, and are important to understand when 
-discussing vulnerabilities in networks.
-\begin{itemize}
-    \item TCP/IP: Consists of two core protocols. TCP (Transmission Control Protocol) handles 
-    reliable, ordered delivery of data, while IP (Internet Protocol) handles addressing and routing. 
-    This suite is the foundation of internet communication, and attacks like DDoS target TCP's 
-    connection-handling mechanisms.
-    \item HTTP/HTTPS: Protocols used for transmitting web pages and other data between a web browser 
-    and a web server.
-    \item ARP: A protocol used for mapping IP addresses to MAC addresses. Because ARP lacks authentication,
-     an attacker can send fake ARP replies to associate their MAC address with a legitimate IP. This is a 
-     technique called ARP spoofing, used in man-in-the-middle attacks.
-\end{itemize}
-
-\subsection{Comparing Network Types}
-\begin{itemize}
-    \item Personal Network: A network that is used for personal use, such as a home network. These 
-    networks are typically smaller and less complex than enterprise networks, and are often not as 
-    secure. This leads to them being an easy target for Threat Actors.
-    \item Enterprise Network: A network that is used for business purposes, such as a corporate network.
-    These networks are typically larger and more complex than personal networks, and are often more
-    secure. However, they are also a larger target for Threat Actors, and can be more difficult to 
-    secure due to their size and complexity.
-\end{itemize}
-
-\subsection{Attack Types}
-\begin{itemize}
-    \item DDoS (Directed Denial of Service): An attack that floods a network with traffic in order to 
-    overwhelm it and make it unavailable to legitimate users.
-    \item ARP Spoofing: An attack that involves sending fake ARP replies to associate the attacker's MAC address
-    with a legitimate IP address, allowing the attacker to intercept or manipulate traffic intended for that IP.
-    \item MITM (Man in the Middle): An attack that involves intercepting and potentially altering communication 
-    between two parties. 
-\end{itemize}
-
-Later in the paper, these two types of networks will be compared in terms of their vulnerabilities
-and setup, and how SDN implementations can be used to mitigate those vulnerabilities and create 
-a more secure network.
+\subsection{Attack Type}
+MITM (Man in the Middle): An attack that involves intercepting and potentially altering communication 
+between two parties. This is the one that will be used in the penetration testing to show the effectiveness of
+the SDN in mitigating vulnerabilities.
 
 \section{Related Works}
-Software Defined Networks (SDNs) are a relatively new technology, but a well researched one. There are
-many papers that have been published on the topic, and many of them focus on the more intricate details
-by diving into enterprise applications of the SDN. Particularly, on the topic of mitigating large scale 
-attacks \cite{biswas2021mitigation}. However, prior research has seemed to overlook the home networks,
-which face different threats and technical constraints. This section reviews relevant literature on 
-SDN security, network vulnerabilities, and simulation tools, then identifies the gap this study addresses.
+SDNs are a relatively new technology, but a well-researched one. There are many papers that have been published 
+on the topic of SDNs, and many of them focus on the more intricate details by diving into enterprise applications 
+of the SDN, particularly, on the topic of mitigating large scale attacks. However, prior research has seemingly 
+overlooked home networks, which face different threats and technical constraints. This section reviews relevant 
+literature on SDN security, network vulnerabilities, and simulation  tools, and then identifies the specific 
+gap this study addresses.
 
 \subsection{SDN for Attack Mitigation}
-Biswas \cite{biswas2021mitigation} investigated SDN based mitigation of network attacks like DDoS,
-demonstrating how an SDN improved detection and response time of an attack when compared to a 
-traditional network architecture. However, this study exclusively focused on enterprise networks,
-leaving a gap in understanding of how SDNs can be applied to a home network, where resources are 
-limited and attack vectors differ. 
+Biswas \cite{biswas2021mitigation} investigated SDN based mitigation of network attacks like direct denial 
+of service (DDoS), demonstrating how an SDN improved detection and response time of an attack when compared 
+to a traditional network architecture. However, this study exclusively focused on enterprise networks, 
+leaving a gap in understanding of how SDNs can be applied to a home network, where resources are limited 
+and attack vectors differ. 
 
 \subsection{Traditional Network Vulnerabilities}
-Rostami et al. \cite{InternetFacingRouterRostami} examined internet facing router services and 
-found that over 40\% of known router IPv4 addresses had at least one vulnerable service exposed.
-This failure to follow basic network security practices highlights the vulnerabilities of many
-networks, particuarly home networks, where most users do not have the technical knowledge to 
-secure their networks, or even know they need to secure their networks. This increases the need for
-SDNs in home networks, as they can enforce security policies centrally. 
+Rostami et al. \cite{InternetFacingRouterRostami} examined internet facing router services and found that over 
+40\% of known router internet protocol version 4 (IPv4) addresses had at least one vulnerable service exposed. 
+This failure to follow basic network security practices highlights the vulnerabilities of many networks, 
+particularly home networks, where most users do not have the technical knowledge to secure their networks, 
+or even know that this must be done. This further increases the need for SDNs in home networks, as they can 
+enforce security policies centrally.  
 
-In summary, prior research has demonstrated SDN's effectiveness for attack mitigation in enterprise 
-networks \cite{biswas2021mitigation} and documented widespread vulnerabilities in home routers 
-\cite{InternetFacingRouterRostami}. However, there seems to be a gap in understanding of how SDNs 
-could effect home network security. This paper aims to fill that gap by simulating both networks 
-before and after the implementation of an SDN, and performing testing and penetration testing
-to show the SDNs effect. The next section will show the methodology for this simulation and testing.
+In summary, prior research has demonstrated SDN's effectiveness for attack mitigation in enterprise networks 
+\cite{biswas2021mitigation} and documented widespread vulnerabilities in home routers. However, there seems 
+to be a gap in understanding of how SDNs could affect home network security. This paper aims to fill that 
+gap by simulating those networks before and after the implementation of an SDN and performing penetration 
+testing to show the SDN's effect. The next section will show the methodology for this simulation and testing.
 
 \section{Methodology}
-To compare SDNs in enterprise and personal networks, this study uses a simulation based approach, 
-where through simulating such networks with their traffic, and then performing penetration testing
-on them, we can see the vulnerabilities of each network, and how the SDN can mitigate those 
-vulnerabilities.
+To compare SDNs in enterprise and personal networks, this study uses a simulation-based approach. Through 
+simulating such networks with their traffic, and then performing penetration testing on them, we can see the 
+vulnerabilities of each network, and how the SDN can mitigate those vulnerabilities.
 
 \subsection{The Simulation Environment}
-VirtualBox \cite{virtualbox_docs} will be used to create virtual machines that will represent end users
-and network devices. GHOSTS \cite{GHOSTSDocumentationGHOSTS} will then be installed on the simulated end
-users to generate realistic network traffic. Both types of Network topologies, enterprise and personal, 
-will be simulated this way, and then the SDN will be implemented in each network, and the simulation will 
-be run again to see the effect of the SDN on the network's vulnerabilities.
+VirtualBox \cite{virtualbox_docs} was used to create virtual machines that represent the different devices 
+on the network. A router was implemented with default settings, in addition to both Windows and Kali Linux 
+machines. The windows machine had a file downloaded to it and executed. This file was a script that performed 
+a MITM attack on the network and was used in tandem with the Kali Linux machine to perform the attack. 
+Through this attack, we can see exactly how vulnerable a local area or personal network can be. 
 
-\subsection{Attack Methodology}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{mitm_attack.png}
+    \caption{This is a screenshot of the data that was captured on the Windows machine during the MITM attack. 
+    It was captured after running two commands, one to get the windows machine ready, and the other to pull 
+    data onto the Linux Machine. The data that was captured was the output of the directory command, which 
+    shows the volume for the drive, the serial number, applications installed, and the raw hexadecimal data.}
+\end{figure}
 
+\subsection{Home Network with no SDN implemented}
+The effectiveness of a MITM attack on a home network without an SDN can be shown through the previous diagram 
+of the network topology. Through what would be plugging in one USB drive and running a script on a Linux machine, 
+you have now been compromised, and the attacker can see all of your traffic, and even manipulate it. This was 
+not a difficult attack either. There are open resources that allow anyone to learn this type of attack. For 
+example, the resource used for this study was from a small piece of Black Hat Python, \cite{seitz2021blackhat}, 
+a book that is available online for free, and has a chapter dedicated to MITM attacks. 
+
+\subsection{Mitigation through SDN}
+Through the use of the SDN controller, we can mitigate the vulnerabilities of the home network. The SDN 
+controller can be used to enforce security policies, such as blocking certain types of traffic, or only 
+allowing certain devices to connect to the network. It also separates the control plane from the data plane, 
+which makes it more difficult for an attacker to gain access to the network, as they would first have to 
+gain access to the far more secure control plane. Below, is the output of the same attack type and code, 
+but with an SDN implemented in the network. As you can see, the attack was not successful, and the attacker 
+was not able to capture any data from the Windows machine. This shows the effectiveness of the SDN in 
+mitigating vulnerabilities in the home network.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{MITM_Failure.png}
+    \caption{This figure shows the output of the same attack type, same code, same virtual machines, but with 
+    the implementation of an SDN in the network. As can be seen, the attack was not successful, and the attacker 
+    was not able to capture any data from the Windows machine. This further shows the effectiveness of the SDN 
+    in mitigating vulnerabilities in the home network.}
+\end{figure}
+
+\section{Conclusion}
+The insecurities of a home network were brought up throughout this paper. Through the related works and 
+methodology sections this paper described these insecurities, gave resources for taking advantage of them, 
+and showed how an SDN can mitigate a MITM attack. SDN's mitigated these attacks by separating the control 
+and data planes of the network, not allowing certain packets to reach an end user from another device. This 
+is why anyone with a network of their own should take time to look into risks and mitigation techniques, and 
+think about implementing an SDN. 
+
+\section{Addendum: Use of Artificial Intelligence}
+Generative AI tools were used in a limited and supporting way throughout the writing of this paper. Their 
+use was restricted to brainstorming, clarification of technical concepts, to find sources, and formatting 
+of the Methodology section. At no point was AI used in any way that would be against the Wooster Ethic.
+When looking at difficult code examples, ChatGPT was occasionally used to describe what the code was doing 
+in the given context, closely relating to how one would use the website Stack Overflow. Most prompts were 
+used to ask technical questions relating to error messages from a Windows terminal.
 
 \bibliographystyle{acm}
 \bibliography{bibliography.bib}
